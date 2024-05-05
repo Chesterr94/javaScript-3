@@ -1,27 +1,40 @@
-
-let cash = +prompt('Введите сумму для конвертации в гривну');
-
-if (isNaN(cash)){ 
-console.log('Введите числовую сумму')
+const isCheckNumber = cash => {
+	if (isNaN(cash)) {
+		console.log('Введите числовую сумму');
+		return false;
+	}
+	return true;
 }
 
-let currencyCheck = prompt("Введите вашу валюту, евро или доллар");
+const isCurrencyCorrect = currency => {
+	if (currency === 'евро' || currency === 'доллар') {
+		return true;
+	}
+	console.log('Ошибка Введите вашу валюту, евро или доллар');
+	return false;
+}
 
-if (currencyCheck === "евро"){
-  const getCurrencyConversion = money => {
-    let euroСoefficient = 42;
-    return money * euroСoefficient;
-  }
-  console.log(getCurrencyConversion(cash) + " - гривен при конвертации с евро");
-} else  if (currencyCheck === "доллар"){
-    const getCurrencyConversion = money => {
-      let euroСoefficient = 38;
-      return money * euroСoefficient;
-    }
-  console.log(getCurrencyConversion(cash) + " - гривен при конвертации с доллара");
-  } else {
-      console.log("Введите только название валюты!")
-};
+const coefficientEuro = 42;
+const coefficientDollar = 38;
 
+const cash = +prompt('Введите желаемую сумму валюты для конвертации в гривну');
 
+if (!isCheckNumber(cash)) {
+	console.log('Работа завершена');
+} else {
+	const currency = prompt('Введите вашу валюту, евро или доллар');
 
+	if (isCurrencyCorrect(currency)) { 
+		console.log ('Работа завершена, всего хорошего');
+	} else {
+		if (currency === "доллар") {
+			let conversionDollar = (cash * coefficientDollar);
+			console.log('Cумма в гривнах:' + conversionDollar);
+		} 
+
+		if (currency === "евро") {
+			let conversionEuro = (cash * coefficientEuro);
+			console.log('Cумма в гривнах:' + conversionEuro);
+		}
+	}
+}
