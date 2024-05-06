@@ -45,13 +45,13 @@ const  calculate =sum => {
     sum *= 0.97;
   }
 
-  if (basketMoney > 30000){
+  if (basketMoney > 30000) {
     sum = basketMoney - 30000 * 0.85;
   }
 
-  if (promoCode === 'METHED'){
+  if (promoCode === 'METHED') {
     sum *=0.9;
-  }else if(promoCode === 'G3H2Z1'){
+  }else if (basketMoney >= 2000 && promoCode === 'G3H2Z1') {
     sum -=500;
   }
 
