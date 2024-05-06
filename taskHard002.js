@@ -1,20 +1,22 @@
 let number1 = +prompt('Введите первое число');
+
 let number2 = +prompt('Введите второе число');
 
 const findMin = (a,b) => {
   if (a > b){
-  return b;
+    return b;
   }if (a === b){
-  return;
+    return;
   }else{
-  return a;
+    return a;
   }
 }
+
 const result = findMin(number1,number2);
-  if (result === undefined) {
-    console.log ("Вводите не равнозначные числа");
-  } else {
+if (typeof result === "number") {
     console.log ("Найменшее число из заданых это " + result);
+  } else {
+    console.log ("Вводите не равнозначные числа");
   }
 
 
